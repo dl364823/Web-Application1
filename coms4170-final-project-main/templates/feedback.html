@@ -1,0 +1,39 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+
+<div class="feedback"></div>
+
+<form id="addItemForm">
+    <div class="form-group">
+        <label for="name">Your name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="story">Your story with Rock music:</label>
+        <input type="text" class="form-control" id="story" name="story" required>
+    </div>
+
+    <div class="form-group">
+        <label for="rating">How is our website (rating):</label>
+        <input type="number" step="0.1" min="0" max="5" class="form-control" id="rating" name="rating" required>
+    </div>
+
+
+    <div class="form-group">
+        <label for="quiz">How about our quizzes:</label>
+        <input type="text" class="form-control" id="quiz" name="quiz" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary feebback-submit">Submit</button>
+    <button type="button" class="btn btn-warning btn-clear feedback-clear" onclick="clearForm()">Clear</button>
+
+    <script>
+        function clearForm() {
+            document.getElementById('addItemForm').reset();
+        }
+    </script>
+</form>
+
+{% endblock %}

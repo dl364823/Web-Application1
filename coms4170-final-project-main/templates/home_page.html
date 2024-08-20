@@ -1,0 +1,15 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<div class="welcome-banner">
+    <h1>Welcome to</h1>
+    <h2>Rock and Roll History !!</h2>
+    <p>This website guides you through classic albums, hit songs, and important events from the first fifty years of rock music. Explore rock music history fully illustrated with great photography from the time period, display decade by decade.</p>
+
+    <a href="{{ url_for('learning', id='timeline') }}" class="start-learning-btn">Start Learning!</a>
+</div>
+
+<footer class="footer-image">
+    <img src="static/images/home_footer.jpg" alt="Footer Image" />
+</footer>
+{% endblock %}

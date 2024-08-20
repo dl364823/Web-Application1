@@ -1,0 +1,36 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h2 class="text-center my-4">Rock Music Timeline</h2>
+    <div class="row position-relative">
+        {% for decade in ["1950s", "1960s", "1970s", "1980s", "1990s"] %}
+        <div class="col text-center timeline-col">
+            <a href="{{ url_for('learning', id=decade) }}" class="d-block">
+                <div class="timeline-badge">{{ decade }}</div>
+                <div class="timeline-heading mt-2">{{ headings[decade] }}</div>
+            </a>
+            {% if not loop.last %}
+            <div class="timeline-arrow"></div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+<script>
+    document.querySelectorAll('.timeline-col').forEach(function(col) {
+    col.addEventListener('mouseover', function() {
+        this.querySelector('.timeline-heading').style.color = 'yellow';
+    });
+    col.addEventListener('mouseout', function() {
+        this.querySelector('.timeline-heading').style.color = 'white';
+    });
+});
+</script>
+  
+

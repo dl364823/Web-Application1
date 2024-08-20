@@ -1,0 +1,51 @@
+{% extends "nav_bar.html" %} {% block content %}
+<div class="timeline-container">
+  <div class="decades">
+    <a href="{{ url_for('learning', id='1950s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1950s' else '' }}">
+        1950s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1960s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1960s' else '' }}">
+        1960s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1970s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1970s' else '' }}">
+        1970s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1980s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1980s' else '' }}">
+        1980s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1990s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1990s' else '' }}">
+        1990s
+      </div>
+    </a>
+  </div>
+  <div class="content">
+    <img
+      src="https://people.com/thmb/vMvKaKLmNJ53IMVn7JRAA2RORxs=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(1076x659:1078x661):format(webp)/elvis-presley-a-2000-0e7aaff6e47a4fd3b2164c8fc1c20d5e.jpg"
+      alt="Elvis Presley"
+      class="top-image"
+    />
+    <div class="info-box">
+      <h1>
+        <a href="{{ url_for('detail_1950s') }}" class="link-2-detail"
+          >Elvis Presley</a
+        >
+        <span class="arrow-text"
+          >→ click here to know must-know information</span
+        >
+      </h1>
+
+      <p>“King of Rock and Roll.”</p>
+      <p>Blue Hawaii (Album)</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

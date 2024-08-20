@@ -1,0 +1,201 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<div style="position: fixed; top: 20px; right: 20px;" xmlns="http://www.w3.org/1999/html">
+    Quiz left: <span id="quiz-left">{{ total_quizzes - quiz_id }}</span>  &nbsp;&nbsp;&nbsp; Time left: <span id="timer">00:00</span>
+</div>
+
+<div class="quiz-container">
+    <h1 class="quiz-question">Quiz {{ quiz_id }}: {{ quiz.question }}</h1>
+    {% if quiz.image %}
+        <img src="{{ quiz.image }}" alt="Quiz Image" style="width:300px; height:auto;">
+    {% endif %}
+    {% if quiz.audio %}
+        <audio controls>
+            <source src="{{ quiz.audio }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+    <form id="quizForm">
+        {% if quiz.type == 'multiple_choice' %}
+            {% for option in quiz.options %}
+            <div>
+                <input type="radio" id="{{ option }}" name="answer" value="{{ option }}">
+                <label for="{{ option }}">{{ option }}</label>
+            </div>
+            {% endfor %}
+        {% elif quiz.type == 'fill_in_the_blank' %}
+            <div>
+                <input type="text" name="answer" value="" placeholder="Type your answer here">
+            </div>
+        {% elif quiz.type == 'ranked_choice' %}
+            <div>
+                {% for option in quiz.options %}
+                    <div class="ranking-option" onclick="selectRank(this, '{{ option }}')">
+                        <span class="rank-badge"></span> {{ option }}
+                        <input type="hidden" name="answer[]" value=""> <!-- Ensure the name attribute is consistent for ranking -->
+                    </div>
+                {% endfor %}
+
+            </div>
+        {% endif %}
+        <button type="button" id="submitBtn" onclick="submitAnswer()" class="quiz-submit">Submit</button>
+    </form>
+    <nav>
+        {% if quiz_id < total_quizzes %}
+            <a href="{{ url_for('quiz', quiz_id=quiz_id+1) }}" class="nav-button" onclick="return checkSubmission();">Next</a>
+        {% endif %}
+        {% if quiz_id == total_quizzes %}
+            <a href="{{ url_for('quiz_results') }}" class="nav-button" onclick="return checkSubmission();">Next</a>
+        {% endif %}
+    </nav>
+
+
+</div>
+
+<!-- Custom Popup Modal -->
+<div id="feedbackModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <p id="feedbackText" class="feedback-text"></p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+    var timeLeft = 300; // 300 seconds for 5 minutes
+    var timerId = setInterval(updateTimer, 1000);
+
+    function updateTimer() {
+        var minutes = Math.floor(timeLeft / 60);
+        var seconds = timeLeft % 60;
+        $('#timer').text(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+
+        if (timeLeft <= 0) {
+            clearInterval(timerId);
+            alert('Time is up!');
+        }
+        timeLeft--;
+    }
+});
+
+var submitted = false; // This flag tracks whether the submit button has been clicked
+
+function checkSubmission() {
+    if (!submitted) {
+        return confirm('Your answer is not submitted. Are you sure you want to go to the next question?');
+    }
+    return true; // Proceed if the answer is submitted
+}
+
+function selectRank(element) {
+    var allOptions = document.querySelectorAll('.ranking-option');
+    var badge = element.getElementsByClassName('rank-badge')[0];
+    var hiddenInput = element.getElementsByTagName('input')[0]; // Get the hidden input
+    var currentRank = badge.textContent === '' ? 0 : parseInt(badge.textContent);
+
+    if (currentRank === 0) {
+        var maxRank = 0;
+        allOptions.forEach(function(el) {
+            var otherBadge = el.getElementsByClassName('rank-badge')[0];
+            var value = otherBadge.textContent === '' ? 0 : parseInt(otherBadge.textContent);
+            maxRank = Math.max(maxRank, value);
+        });
+        badge.textContent = maxRank + 1;
+        hiddenInput.value = badge.textContent;
+        element.classList.add('selected');
+    } else {
+        badge.textContent = ''; 
+        hiddenInput.value = '';
+        element.classList.remove('selected');
+        allOptions.forEach(function(el) {
+            var otherBadge = el.getElementsByClassName('rank-badge')[0];
+            var otherHiddenInput = el.getElementsByTagName('input')[0];
+            var value = otherBadge.textContent === '' ? 0 : parseInt(otherBadge.textContent);
+            if (value > currentRank) {
+                otherBadge.textContent = value - 1;
+                otherHiddenInput.value = otherBadge.textContent;
+            }
+        });
+    }
+}
+
+
+function validateInput() {
+    // Assume a generic validation for all quiz types
+    var inputValid = false;
+    var quizType = "{{ quiz.type }}";
+
+    if (quizType === 'multiple_choice' || quizType === 'ranked_choice') {
+        inputValid = $('input[type="radio"]:checked, input[type="hidden"][value!=""]').length > 0;
+    } else if (quizType === 'fill_in_the_blank') {
+        inputValid = $('input[type="text"]').val().trim() !== '';
+    }
+
+    return inputValid;
+}
+
+function submitAnswer() {
+    var valid = validateInput();
+    if (!valid) {
+        alert('Please make a selection or fill in the answer before submitting.');
+        return; // Stop the function if validation fails
+    }
+    const formData = new FormData($('#quizForm')[0]);
+
+    const allRanks = document.querySelectorAll('.ranking-option input');
+    let allRanked = true;
+
+    allRanks.forEach(input => {
+        if (input.value === '') {
+            allRanked = false;
+        }
+    });
+
+    if (!allRanked) {
+        alert("Oops! Please rank all person/band.");
+        return; // Stop submission if not all are ranked
+    }
+
+    $.ajax({
+        url: "{{ url_for('quiz', quiz_id=quiz_id) }}",
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        beforeSend: function() {
+            $('#submitBtn').prop('disabled', true);
+            submitted = true;
+        },
+        success: function(data) {
+            $('input[name="answer"]').each(function() {
+                $(this).attr('disabled', true);
+                if ($(this).is(':checked')) {
+                    $(this).closest('div').css('color', data.feedback === 'correct' ? 'green' : 'red');
+                }
+            });
+
+            // Set the text and show the modal
+            $('#feedbackText').text('Your answer is ' + (data.feedback === 'correct' ? 'Correct! Good Job!' : 'Incorrect.'));
+            $('#feedbackModal').css('display', 'block');
+
+            if (data.isLastQuiz) {
+                setTimeout(function() {
+                    window.location.href = "{{ url_for('quiz_results') }}";
+                }, 2000);
+            }
+        },
+        error: function(error) {
+            console.error('Error:', error);
+            $('#submitBtn').prop('disabled', false);
+            submitted = false;
+        }
+    });
+}
+
+function closeModal() {
+    $('#feedbackModal').css('display', 'none');
+}
+</script>
+
+{% endblock %}

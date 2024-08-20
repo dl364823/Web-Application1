@@ -1,0 +1,88 @@
+{% extends "nav_bar.html" %} {% block content %}
+<div class="timeline-container">
+  <div class="decades">
+    <a href="{{ url_for('learning', id='1950s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1950s' else '' }}">
+        1950s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1960s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1960s' else '' }}">
+        1960s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1970s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1970s' else '' }}">
+        1970s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1980s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1980s' else '' }}">
+        1980s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1990s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1990s' else '' }}">
+        1990s
+      </div>
+    </a>
+  </div>
+
+  <div class="content">
+    <!-- First image and text container -->
+    <div class="row">
+      <div class="image-container">
+        <img
+          src="https://www.udiscovermusic.com/wp-content/uploads/2017/03/U2-TheJoshuaTree-SuperDeluxe-Boxset-cover-530-web-2048x2048.jpg"
+          alt="U2"
+          class="top-image"
+        />
+      </div>
+      <div class="info-box">
+        <h1>
+          <a href="{{ url_for('detail_1980s') }}" class="link-2-detail">U2</a
+          ><span class="arrow-text"
+            >→ click here to know must-know information</span
+          >
+        </h1>
+        <p>
+          An irish band that rose to global prominence with their passionate
+          music and resonant themes of human rights and social justice.
+        </p>
+        <p>The Joshua Tree (Album)</p>
+      </div>
+    </div>
+    <!-- Separator Line (optional) -->
+    <!-- <hr class="separator-line"> -->
+    <!-- Second image and text container -->
+    <div class="row">
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/princepurplerain.jpg') }}"
+          alt="Prince"
+          class="bottom-image"
+        />
+      </div>
+      <div class="info-box">
+        <h1>
+          <a href="{{ url_for('detail_1980s2') }}" class="link-2-detail"
+            >Prince</a
+          ><span class="arrow-text"
+            >→ click here to know must-know information</span
+          >
+        </h1>
+        <p>
+          An American musical genius, is celebrated for his eclectic work,
+          flamboyant stage presence, and wide vocal range. A
+          multi-instrumentalist known for playing most of the instruments on his
+          recordings, Prince was also a prolific songwriter and a dynamic
+          performer.
+        </p>
+        <p>Purple Rain (Album)</p>
+        Album by Prince known for having no bass line and featuring a mix of
+        genres.
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

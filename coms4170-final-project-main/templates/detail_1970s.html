@@ -1,0 +1,52 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+      <!-- First column for the image -->
+      <div class="col-md-4">
+        <img src="{{ url_for('static', filename='images/ImagineCover.jpg') }}" alt="Pink Floyd" class="elvis-image">
+        <!-- Audio player code can be added here if needed -->
+      </div>
+  
+      <!-- Second column for content -->
+      <div class="col-md-4">
+        <h2>John Lennon: A Maestro of Heartfelt Melodies</h2>
+        <ul>
+          <li><strong>Beatle to Icon:</strong> From the quarry of Liverpool, rose a Beatle who would become an icon for peace. John Lennon transcended pop to become a voice for his generation.
+          </li>
+          <li><strong>Solo Flight:</strong> After the Beatles' disbandment, Lennon soared into a solo career, interweaving his artistry with activism, his music becoming a banner for change.
+            .</li>
+          <li><strong>Poetic Lyricism: </strong>His lyrics, raw and honest, struck chords of common humanity, each song a mirror reflecting the world's hopes and heartaches.
+          </li>
+        </ul>
+        <p>"Imagine" (a Song of Album)</p>
+        <div class="audio-container">
+          <audio controls>
+              <source src="{{ url_for('static', filename='audio/John_Lennon.mp3') }}" type="audio/mpeg">
+              Your browser does not support the audio element.
+          </audio>
+      </div>
+
+      </div>
+  
+      <!-- Third column for more content -->
+      <div class="col-md-4">
+        <div class="album-spotlight">
+            <h2>Album Spotlight:</h2>
+            <ul class="album-features">
+                <li>Anthem for Peace </li>
+                <li>Revelations of Love and Life</li>
+                <li>Everlasting Hymn of Hope and Healing</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Back button code can be added here if needed -->
+  
+
+  <div class="next-button-container">
+    <a href="{{ url_for('learning', id='1970s') }}" class="next-button">Back</a>
+</div>
+</div>
+{% endblock%}

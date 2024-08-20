@@ -1,0 +1,49 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Left Column for Image -->
+        <div class="col-md-4">
+            <!-- Image placeholder -->
+            <img src="{{ url_for('static', filename='images/Prince.jpg') }}" alt="Pink Floyd" class="elvis-image">
+        </div>
+        
+        <!-- Middle Column for Content -->
+        <div class="col-md-4">
+            <h1>Prince </h1>
+            <ul>
+                <li><strong>Genre-Blending Virtuoso:</strong> FoRenowned for his eclectic blend of funk, rock, R&B, and pop, Prince redefined the boundaries of music genres with his unique sound and extraordinary talent.
+                </li>
+                <li><strong>Prodigious Talent: </strong> A multi-instrumentalist known for playing most of the instruments on his recordings, Prince was also a prolific songwriter and a dynamic performer.</li>
+                <li><strong>Visual and Stage Flamboyance:</strong> Known for his flamboyant style and androgynous persona, Prince pushed the limits of fashion and presentation in the music industry.</li>
+            </ul>
+            <p>“When Doves Cry” (a Song of Album)</p>
+            <div class="audio-container">
+                <audio controls>
+                    <source src="{{ url_for('static', filename='audio/Prince.mp3') }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        
+        <!-- Right Column for Album Spotlight -->
+        <div class="col-md-4">
+            <h2>Album Spotlights:</h2>
+            <div class="album-spotlight">
+                <h2>Album Spotlight:</h2>
+                <ul class="album-features">
+                    <li>Revolutionary Sounds - featuring no bass line</li>
+                    <li>Theme of love and heartache</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<div class="next-button-container">
+    <a href="{{ url_for('learning', id='1980s') }}" class="next-button">Back</a>
+</div>
+</div>
+
+{% endblock%}

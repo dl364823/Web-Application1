@@ -1,0 +1,47 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <!-- Left Column for Image -->
+        <div class="col-md-4">
+            <!-- Image placeholder -->
+            <img src="https://i.iheart.com/v3/re/new_assets/59bfd718b7f0c24b109c77cc?ops=contain(1480,0)" alt="Pink Floyd" class="elvis-image">
+        </div>
+        
+        <!-- Middle Column for Content -->
+        <div class="col-md-4">
+            <h1>Guns n' Roses - Use Your Illusion II</h1>
+            <ul>
+                <li><strong>Rock Legends Reimagined:</strong> Guns N' Roses, a band synonymous with the raucous energy and rebellious spirit of late 80s and early 90s rock music, unleashed "Use Your Illusion II" as part of a bold double album release. Known for their gritty sound and bad-boy image, this album sees them expanding their musical landscape.</li>
+                <li><strong>Rock's Rebellious Symphony:</strong> From the depths of Los Angeles' rock scene emerged "Use Your Illusion II," a tour de force of Guns N' Roses' bold, unruly spirit. This album marks a continuation of their journey into the heart of hard rock, packed with intensity and controversy.</li>
+            </ul>
+            <p>"Chinese Democracy" (a Song of Album)</p>
+            <div class="audio-container">
+                <audio controls>
+                    <source src="{{ url_for('static', filename='audio/Gun.ogg') }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        
+        <!-- Right Column for Album Spotlight -->
+        <div class="col-md-4">
+            <h2>Album Spotlights:</h2>
+            <div class="album-spotlight">
+                <h2>Album Spotlight:</h2>
+                <ul class="album-features">
+                    <li>Epic</li>
+                    <li>Rebellious</li>
+                    <li>Introspective</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<div class="next-button-container">
+    <a href="{{ url_for('learning', id='1990s') }}" class="next-button">Back</a>
+</div>
+</div>
+{% endblock%}

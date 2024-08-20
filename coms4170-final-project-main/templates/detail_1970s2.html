@@ -1,0 +1,48 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+      <!-- First column for the image -->
+      <div class="col-md-4">
+        <img src="{{ url_for('static', filename='images/quiz2.png') }}" alt="Pink Floyd" class="elvis-image">
+        <!-- Audio player code can be added here if needed -->
+      </div>
+  
+      <!-- Second column for content -->
+      <div class="col-md-4">
+        <h2>Pink Floyd: Innovators of Psychedelic Rock</h2>
+        <ul>
+          <li><strong>Psychedelic Beginnings:</strong> Formed in the cultural cauldron of 1960s London, Pink Floyd began as the brainchild of Syd Barrett, whose creative vision gave birth to a new genre of music.</li>
+          <li><strong>Sound and Spectacle:</strong> Known for their philosophical lyrics and sonic experimentation, their live shows were a kaleidoscope of light and sound, captivating audiences and carving a niche in rock history.</li>
+          <li><strong>Evolution of Sound:</strong> As members evolved, so did their music, transitioning from psychedelic to progressive rock, with albums that broke the mold and redefined the era.</li>
+        </ul>
+        <p>"Wish You Were Here" (a Song of Album)</p>
+        <div class="audio-container">
+            <audio controls>
+                <source src="{{ url_for('static', filename='audio/Pink Floyd.mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+      </div>
+  
+      <!-- Third column for more content -->
+      <div class="col-md-4">
+        <div class="album-spotlight">
+            <h2>Album Spotlight:</h2>
+            <ul class="album-features">
+                <li>Tribute to Syd Barrett</li>
+                <li>Critique the mechanizations of industry</li>
+                <li>Visual and Auditory Odyssey</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Back button code can be added here if needed -->
+  
+
+  <div class="next-button-container">
+    <a href="{{ url_for('learning', id='1970s') }}" class="next-button">Back</a>
+</div>
+</div>
+{% endblock%}

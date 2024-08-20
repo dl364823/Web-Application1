@@ -1,0 +1,86 @@
+{% extends "nav_bar.html" %} {% block content %}
+<div class="timeline-container">
+  <div class="decades">
+    <a href="{{ url_for('learning', id='1950s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1950s' else '' }}">
+        1950s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1960s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1960s' else '' }}">
+        1960s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1970s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1970s' else '' }}">
+        1970s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1980s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1980s' else '' }}">
+        1980s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1990s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1990s' else '' }}">
+        1990s
+      </div>
+    </a>
+  </div>
+
+  <div class="content">
+    <!-- First image and text container -->
+    <div class="row">
+      <div class="image-container">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/d/d6/Pink_Floyd_-_all_members.jpg"
+          alt="Pink Floyd"
+          class="top-image"
+        />
+      </div>
+      <div class="info-box">
+        <h1>
+          <a href="{{ url_for('detail_1970s2') }}" class="link-2-detail"
+            >Pink Floyd</a
+          ><span class="arrow-text"
+            >→ click here to know must-know information</span
+          >
+        </h1>
+        <p>
+          An English rock band who gained an early following a one of the first
+          British psychedelic groups. They were distinguished by their extended
+          compositions, sonic experiments, philosophical lyrics and elaborate
+          live show.
+        </p>
+        <p>Wish You Were Here (Album)</p>
+      </div>
+    </div>
+    <!-- Separator Line (optional) -->
+    <!-- <hr class="separator-line"> -->
+    <!-- Second image and text container -->
+    <div class="row">
+      <div class="image-container">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/John_Lennon%2C_1974_%28restored_cropped%29.jpg/1280px-John_Lennon%2C_1974_%28restored_cropped%29.jpg"
+          alt="John Lennon"
+          class="bottom-image"
+        />
+      </div>
+      <div class="info-box">
+        <h1>
+          <a href="{{ url_for('detail_1970s') }}" class="link-2-detail"
+            >John Lennon</a
+          ><span class="arrow-text"
+            >→ click here to know must-know information</span
+          >
+        </h1>
+        <p>
+          A visionary songwriter who co-founded The Beatles and inspired change
+          with his music and peace activism.
+        </p>
+        <p>Imagine (Album)</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

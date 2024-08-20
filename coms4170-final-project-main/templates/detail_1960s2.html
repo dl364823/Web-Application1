@@ -1,0 +1,48 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+      <!-- First column for the image -->
+      <div class="col-md-4">
+        <img src="{{ url_for('static', filename='images/Freewheelin.jpg') }}" alt="The Beatles" class="elvis-image">
+      </div>
+  
+      <!-- Second column for content -->
+      <div class="col-md-4">
+        <h2>Bob Dylan: Poet of Protest and Song</h2>
+        <ul>
+          <li><strong>Folk Roots:</strong> Emerging from the burgeoning folk scene of early 1960s New York, Bob Dylan started as a folk singer with a guitar, harmonica, and a unique voice that would soon articulate the dreams and frustrations of a generation.</li>
+          <li><strong>Lyric Power:</strong>Dylan is celebrated for his complex lyrics that merge poetic depth with social commentary, reshaping traditional songwriting with tracks like "Blowin' in the Wind" and "The Times They Are a-Changin'."</li>
+          <li><strong>Music Evolution:</strong>Over the decades, Dylan's style has evolved from acoustic folk to electric rock, embracing various genres including blues, country, and gospel, continually reinventing his music and influencing diverse musical paths.
+          </li>
+        </ul>
+        <p>"Blowin' in the Wind" (a Song of Album)</p>
+        <div class="audio-container">
+            <audio controls>
+                <source src="{{ url_for('static', filename='audio/Bob_Dylan.mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+      </div>
+  
+      <!-- Third column for more content -->
+      <div class="col-md-4">
+        <div class="album-spotlight">
+            <h2>Album Spotlight:</h2>
+            <ul class="album-features">
+                <li>Anthem for civil rights and anti-war movements</li>
+                <li>Musical Simplicity, Lyrical Complexity</li>
+                <li>Nobel Prize in Literature</li>
+
+            </ul>
+        </div>
+      </div>
+      
+    </div>
+
+  <div class="next-button-container">
+    <a href="{{ url_for('learning', id='1960s') }}" class="next-button">Back</a>
+</div>
+</div>
+{% endblock%}

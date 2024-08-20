@@ -1,0 +1,91 @@
+{% extends "nav_bar.html" %} {% block content %}
+<div class="timeline-container">
+  <div class="decades">
+    <a href="{{ url_for('learning', id='1950s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1950s' else '' }}">
+        1950s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1960s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1960s' else '' }}">
+        1960s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1970s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1970s' else '' }}">
+        1970s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1980s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1980s' else '' }}">
+        1980s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1990s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1990s' else '' }}">
+        1990s
+      </div>
+    </a>
+  </div>
+
+  <div class="content">
+    <!-- First image and text container -->
+    <div class="row">
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/ab6761610000e5eb50defaf9fc059a1efc541f4c.jpeg') }}"
+          alt="Guns N' Roses"
+          class="top-image"
+        />
+      </div>
+      <div class="info-box">
+        <h1>
+          <a href="{{ url_for('detail_1990s') }}" class="link-2-detail"
+            >Gun’ Roses</a
+          ><span class="arrow-text"
+            >→ click here to know must-know information</span
+          >
+        </h1>
+        <p>
+          Guns N' Roses heavily toured the West Coast club circuit during their
+          early years before embarking on the Appetite for Destruction Tour.
+        </p>
+        <p>Use Your Illusion II (Album)</p>
+      </div>
+    </div>
+    <!-- Separator Line (optional) -->
+    <!-- <hr class="separator-line"> -->
+    <!-- Second image and text container -->
+    <div class="row">
+      <div class="image-container">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/19/Nirvana_around_1992.jpg"
+          alt="Nirvana"
+          class="bottom-image"
+        />
+      </div>
+      <div class="info-box">
+        <h1>
+          <a href="{{ url_for('detail_1990s2') }}" class="link-2-detail"
+            >Nirvana</a
+          ><span class="arrow-text"
+            >→ click here to know must-know information</span
+          >
+        </h1>
+        <p>
+          Nirvana's success popularized alternative rock, and they were often
+          referenced as the figurehead band of Generation X. Despite a short
+          mainstream career spanning only three years, their music maintains a
+          popular following and continues to influence modern rock culture.
+        </p>
+        <p>Nevermind (Album)</p>
+      </div>
+      <div class="next-button-container">
+        <a href="{{  url_for('quiz', quiz_id=1)}}" class="next-button"
+          >Start the Quiz</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

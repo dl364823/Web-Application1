@@ -1,0 +1,85 @@
+{% extends "nav_bar.html" %} {% block content %}
+<div class="timeline-container">
+  <div class="decades">
+    <a href="{{ url_for('learning', id='1950s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1950s' else '' }}">
+        1950s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1960s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1960s' else '' }}">
+        1960s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1970s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1970s' else '' }}">
+        1970s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1980s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1980s' else '' }}">
+        1980s
+      </div>
+    </a>
+    <a href="{{ url_for('learning', id='1990s') }}" class="decade-link">
+      <div class="decade {{ 'highlight' if learning_id == '1990s' else '' }}">
+        1990s
+      </div>
+    </a>
+  </div>
+
+  <div class="content">
+    <!-- First image and text container -->
+    <div class="row">
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/Beatles.jpeg') }}"
+          alt="The Beatles"
+          class="top-image"
+        />
+      </div>
+      <div class="info-box">
+        <h1>
+          <a href="{{ url_for('detail_1960s') }}" class="link-2-detail"
+            >The Beatles</a
+          ><span class="arrow-text"
+            >→ click here to know must-know information</span
+          >
+        </h1>
+        <p>
+          The most influential band in the history of popular music. Their
+          innovative music and cultural impact helped define the 1960s and
+          changed the landscape of music forever.
+        </p>
+        <p>Hey Jude (Album)</p>
+      </div>
+    </div>
+    <!-- Separator Line (optional) -->
+    <!-- <hr class="separator-line"> -->
+    <!-- Second image and text container -->
+    <div class="row">
+      <div class="image-container">
+        <img
+          src="{{ url_for('static', filename='images/gettyimages-944125264-1621630232.jpg') }}"
+          alt="Bob Dylan"
+          class="bottom-image"
+        />
+      </div>
+      <div class="info-box">
+        <h1>
+          <a href="{{ url_for('detail_1960s2') }}" class="link-2-detail"
+            >Bob Dylan</a
+          ><span class="arrow-text"
+            >→ click here to know must-know information</span
+          >
+        </h1>
+        <p>
+          A seminal figure in rock music who shaped the musical landscape with
+          his poignant lyrics and distinctive voice.
+        </p>
+        <p>The Freewheelin (Album)</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

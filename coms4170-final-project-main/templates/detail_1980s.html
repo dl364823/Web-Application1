@@ -1,0 +1,49 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Left Column for Image -->
+        <div class="col-md-4">
+            <!-- Image placeholder -->
+            <img src="https://thisis-images.spotifycdn.com/37i9dQZF1DZ06evO2X1bTq-default.jpg" alt="Pink Floyd" class="elvis-image">
+        </div>
+        
+        <!-- Middle Column for Content -->
+        <div class="col-md-4">
+            <h1>U2: Blazers of Rock and Advocacy</h1>
+            <ul>
+                <li><strong>Irish Origins:</strong> Formed in Dublin in 1976, U2 consists of Bono, The Edge, Adam Clayton, and Larry Mullen Jr., uniting as teenagers with a shared ambition to make impactful music.</li>
+                <li><strong>Distinctive Sound:</strong> Known for their unique blend of rock influenced by post-punk and alternative music, U2's sound is characterized by The Edge's echoing guitar effects and Bono's expressive vocals.</li>
+                <li><strong>Activism and Advocacy:</strong> Known for their activism, particularly Bono's efforts in campaigning for human rights and social justice worldwide, which have been integral to the band's identity.</li>
+            </ul>
+            <p>"I Still Haven't Found What I'm Looking For" (a Song of Album)</p>
+            <div class="audio-container">
+                <audio controls>
+                    <source src="{{ url_for('static', filename='audio/U2.mp3') }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        
+        <!-- Right Column for Album Spotlight -->
+        <div class="col-md-4">
+            <h2>Album Spotlights:</h2>
+            <div class="album-spotlight">
+                <h2>Album Spotlight:</h2>
+                <ul class="album-features">
+                    <li>Theme of Struggle and Hope</li>
+                    <li>American Landscape and Culture</li>
+                    <li>Grammy Award in 1998</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<div class="next-button-container">
+    <a href="{{ url_for('learning', id='1980s') }}" class="next-button">Back</a>
+</div>
+</div>
+
+{% endblock%}

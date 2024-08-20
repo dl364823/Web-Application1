@@ -1,0 +1,28 @@
+{
+  "images": [
+    {
+      "name": "homepage_footer",
+      "file": "materials/images/home_footer.jpg",
+      "description": "Home footer"
+    },
+    {
+      "name": "Image2",
+      "file": "materials/images/image2.png",
+      "description": "Description of Image 2"
+    }
+  ],
+  "sounds": [
+    {
+      "name": "Sound1",
+      "file": "materials/sounds/sound1.mp3",
+      "description": "Description of Sound 1"
+    }
+  ],
+  "videos": [
+    {
+      "name": "Video1",
+      "file": "materials/videos/video1.mp4",
+      "description": "Description of Video 1"
+    }
+  ]
+}

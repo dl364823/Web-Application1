@@ -1,0 +1,45 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+      <!-- First column for the image -->
+      <div class="col-md-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/The_Beatles_members_at_New_York_City_in_1964.jpg/800px-The_Beatles_members_at_New_York_City_in_1964.jpg" alt="The Beatles" class="elvis-image">
+      </div>
+  
+      <!-- Second column for content -->
+      <div class="col-md-4">
+        <h2>The Beatles: Pioneers of Pop</h2>
+        <ul>
+          <li><strong>Liverpool Legends:</strong> Emerging from the vibrant music scene of 1960s Liverpool, The Beatles—John Lennon, Paul McCartney, George Harrison, and Ringo Starr—revolutionized music with their innovative sound and harmonious charisma.</li>
+          <li><strong>Musical Innovator:</strong> Known for their groundbreaking contributions to music, The Beatles blended diverse genres, crafting songs that resonated globally and influenced generations.</li>
+        </ul>
+        <p>"Hey Jude (a Song of Album)"</p>
+        <div class="audio-container">
+            <audio controls>
+                <source src="{{ url_for('static', filename='audio/beatles.mov') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+      </div>
+  
+      <!-- Third column for more content -->
+      <div class="col-md-4">
+        <div class="album-spotlight">
+            <h2>Album Spotlight:</h2>
+            <ul class="album-features">
+                <li>Heartfelt Solace for John Lennon's Son</li>
+                <li>Chart-Topping Hit</li>
+                <li>A Symbol of Comfort and Strength</li>
+            </ul>
+        </div>
+      </div>
+      
+    </div>
+
+  <div class="next-button-container">
+    <a href="{{ url_for('learning', id='1960s') }}" class="next-button">Back</a>
+</div>
+</div>
+{% endblock%}

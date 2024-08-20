@@ -1,0 +1,44 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+    <!-- First column for the image -->
+      <div class="col-md-4">
+        <img src="{{ url_for('static', filename='images/Can\'t_Help_Falling_in_Love_by_Elvis_Presley_US_picture_sleeve.png') }}" alt="Elvis Presley" class="elvis-image">
+      </div>
+  
+      <!-- Second column for content -->
+      <div class="col-md-4">
+        <h2>Elvis Presley: King of Rock and Roll</h2>
+        <ul>
+          <li><strong>Musical Innovator:</strong> Burst onto the music scene in the mid-1950s, revolutionizing the genre with his unique blend of rock, blues, and country influences.</li>
+          <li><strong>Iconic Style:</strong> Known for his charismatic stage presence, distinctive vocal style, and provocative dance moves that captivated audiences and stirred controversy.</li>
+          <li><strong>Hollywood Career:</strong> Starred in over 30 films, using his popularity to cross over into acting, though his primary legacy remains his musical output.</li>
+        </ul>
+        <p>“Can’t Help Falling in Love” (a Song of Album)"</p>
+        <div class="audio-container">
+          <audio controls>
+              <source src="{{ url_for('static', filename='audio/elvis presley.mov') }}" type="audio/mpeg">
+              Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+  
+      <!-- Third column for more content -->
+      <div class="col-md-4">
+        <div class="album-spotlight">
+          <h2>Album Spotlight:</h2>
+          <ul class="album-features">
+              <li>Romantic Ballad</li>
+              <li>Smooth and Rich Vocal Delivery</li>
+              <li>Popular Choice at Weddings</li>
+          </ul>
+      </div>
+      </div>
+
+  <div class="next-button-container">
+    <a href="{{ url_for('learning', id='1950s') }}" class="next-button">Back</a>
+</div>
+</div>
+{% endblock%}

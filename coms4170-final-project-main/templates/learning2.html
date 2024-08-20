@@ -1,0 +1,46 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+<div class="timeline-container">
+    <div class="decades">
+        <a href="{{ url_for('learning', id='1') }}" class="decade-link">
+            <div class="decade {{ 'highlight' if learning_id == '1' else '' }}">1950s</div>
+        </a>
+        <a href="{{ url_for('learning', id='2') }}" class="decade-link">
+            <div class="decade {{ 'highlight' if learning_id == '2' else '' }}">1960s</div>
+        </a>
+        <a href="{{ url_for('learning', id='3') }}" class="decade-link">
+            <div class="decade {{ 'highlight' if learning_id == '3' else '' }}">1970s</div>
+        </a>
+        <a href="{{ url_for('learning', id='4') }}" class="decade-link">
+            <div class="decade {{ 'highlight' if learning_id == '4' else '' }}">1980s</div>
+        </a>
+        <a href="{{ url_for('learning', id='5') }}" class="decade-link">
+            <div class="decade {{ 'highlight' if learning_id == '5' else '' }}">1990s</div>
+        </a>
+    </div>
+    
+    <div class="content">
+        <div class="image-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/The_Beatles_members_at_New_York_City_in_1964.jpg" alt="Image description" class="top-image"/>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Bob_Dylan_-_Azkena_Rock_Festival_2010_2.jpg" alt="Image description" class="bottom-image"/>
+        </div>
+        <div class="info-box">
+            <h1>The Beatles</h1>
+            <p>the most influential band in the history of popular music. Their innovative music and cultural impact helped define the 1960s and changed the landscape of music forever.</p>
+            <p>Hey Jude</p>
+            <div class="links">
+                <a href="spotify_link" target="_blank">Listen on Spotify</a>
+                <a href="youtube_link" target="_blank">Watch on Youtube</a>
+            </div>
+            <h1>Bob Dylan</h1>
+            <p>a seminal figure in rock music who shaped the musical landscape with his poignant lyrics and distinctive voice.</p>
+            <p>The Freewheelin</p>
+            <div class="links">
+                <a href="spotify_link" target="_blank">Listen on Spotify</a>
+                <a href="youtube_link" target="_blank">Watch on Youtube</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "nav_bar.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <!-- Left Column for Image -->
+        <div class="col-md-4">
+            <!-- Image placeholder -->
+            <img src="https://upload.wikimedia.org/wikipedia/en/b/b7/NirvanaNevermindalbumcover.jpg" alt="Pink Floyd" class="elvis-image">
+        </div>
+        
+        <!-- Middle Column for Content -->
+        <div class="col-md-4">
+            <h1>Nirvana: Nevermind</h1>
+            <ul>
+                <li><strong>Grunge Revolutionaries:</strong> Nirvana, fronted by the enigmatic Kurt Cobain, emerged from the Pacific Northwest's underground music scene to redefine mainstream rock with their seminal album "Nevermind." Released in 1991, this album catapulted Nirvana from obscurity to the forefront of the global music stage, symbolizing the explosive arrival of the grunge movement.
+                </li>
+                <li><strong>Grunge's Anthem: </strong> Emerging from the Seattle scene, Nirvana's "Nevermind" revolutionized the music landscape, setting the standard for 90s grunge.
+                    "Use Your Illusion II," a tour de force of Guns N' Roses' bold, unruly spirit. This album marks a continuation of their journey into the heart of hard rock, packed with intensity and controversy.</li>
+            </ul>
+            <p>“Come As You Are” (a Song of Album)</p>
+            <div class="audio-container">
+                <audio controls>
+                    <source src="{{ url_for('static', filename='audio/Come.ogg') }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        
+        <!-- Right Column for Album Spotlight -->
+        <div class="col-md-4">
+            <h2>Album Spotlights:</h2>
+            <div class="album-spotlight">
+                <h2>Album Spotlight:</h2>
+                <ul class="album-features">
+                    <li>Groundbreaking</li>
+                    <li>Raw</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<div class="next-button-container">
+    <a href="{{ url_for('learning', id='1990s') }}" class="next-button">Back</a>
+</div>
+</div>
+{% endblock%}
